@@ -9,6 +9,7 @@ import { Workout } from './models/Workout';
 const app = express();
 const port = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
+// Build a public API URL in Codespaces and keep localhost fallback for local runs.
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
   : 'http://localhost:8000';

@@ -1,0 +1,65 @@
+.app-shell {
+  width: min(1100px, 100% - 2rem);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.app-header {
+  background: linear-gradient(120deg, #102a43 0%, #0f6b6f 55%, #8ecae6 100%);
+  color: #fdfdfd;
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.subtitle {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.config-alert {
+  margin-top: 1rem;
+}
+
+.app-nav {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.app-content {
+  border: 0;
+  border-radius: 1rem;
+}
+
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.resource-subtitle {
+  color: #5c677d;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    width: calc(100% - 1rem);
+    margin: 1rem auto;
+  }
+
+  .app-header {
+    padding: 1rem;
+  }
+}

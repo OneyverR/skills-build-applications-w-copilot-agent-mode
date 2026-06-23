@@ -8,13 +8,14 @@ function normalizeCollection(payload) {
   return []
 }
 
-function Activities({ apiBaseUrl }) {
+function Activities({ apiHost }) {
   const [items, setItems] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
 
   useEffect(() => {
-    const endpoint = `${apiBaseUrl}/activities/`
+    const endpointPath = '/api/activities/'
+    const endpoint = `${apiHost}${endpointPath}`
 
     async function fetchActivities() {
       setStatus('loading')
@@ -32,14 +33,14 @@ function Activities({ apiBaseUrl }) {
     }
 
     void fetchActivities()
-  }, [apiBaseUrl])
+  }, [apiHost])
 
   return (
     <section>
       <div className="resource-header">
         <div>
           <h2 className="h4 mb-1">Activities</h2>
-          <p className="resource-subtitle">Endpoint: {`${apiBaseUrl}/activities/`}</p>
+          <p className="resource-subtitle">Endpoint: {`${apiHost}/api/activities/`}</p>
         </div>
       </div>
 

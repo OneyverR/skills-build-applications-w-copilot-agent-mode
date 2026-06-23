@@ -8,9 +8,9 @@ import './App.css'
 
 function App() {
   const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
-  const apiBaseUrl = codespaceName
-    ? `https://${codespaceName}-8000.app.github.dev/api`
-    : 'http://localhost:8000/api'
+  const apiHost = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : 'http://localhost:8000'
 
   const endpoints = [
     { path: '/users', label: 'Users' },
@@ -36,7 +36,7 @@ function App() {
         )}
         {codespaceName && (
           <div className="alert alert-success config-alert" role="alert">
-            API host resolved from VITE_CODESPACE_NAME: <strong>{apiBaseUrl}</strong>
+            API host resolved from VITE_CODESPACE_NAME: <strong>{apiHost}</strong>
           </div>
         )}
       </header>
@@ -57,11 +57,11 @@ function App() {
         <div className="card-body">
           <Routes>
             <Route path="/" element={<Navigate to="/users" replace />} />
-            <Route path="/users" element={<Users apiBaseUrl={apiBaseUrl} />} />
-            <Route path="/teams" element={<Teams apiBaseUrl={apiBaseUrl} />} />
-            <Route path="/activities" element={<Activities apiBaseUrl={apiBaseUrl} />} />
-            <Route path="/leaderboard" element={<Leaderboard apiBaseUrl={apiBaseUrl} />} />
-            <Route path="/workouts" element={<Workouts apiBaseUrl={apiBaseUrl} />} />
+            <Route path="/users" element={<Users apiHost={apiHost} />} />
+            <Route path="/teams" element={<Teams apiHost={apiHost} />} />
+            <Route path="/activities" element={<Activities apiHost={apiHost} />} />
+            <Route path="/leaderboard" element={<Leaderboard apiHost={apiHost} />} />
+            <Route path="/workouts" element={<Workouts apiHost={apiHost} />} />
           </Routes>
         </div>
       </main>

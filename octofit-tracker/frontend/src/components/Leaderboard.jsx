@@ -9,13 +9,14 @@ function normalizeLeaderboardEntries(payload) {
   return []
 }
 
-function Leaderboard({ apiBaseUrl }) {
+function Leaderboard({ apiHost }) {
   const [entries, setEntries] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
 
   useEffect(() => {
-    const endpoint = `${apiBaseUrl}/leaderboard/`
+    const endpointPath = '/api/leaderboard/'
+    const endpoint = `${apiHost}${endpointPath}`
 
     async function fetchLeaderboard() {
       setStatus('loading')
@@ -41,14 +42,14 @@ function Leaderboard({ apiBaseUrl }) {
     }
 
     void fetchLeaderboard()
-  }, [apiBaseUrl])
+  }, [apiHost])
 
   return (
     <section>
       <div className="resource-header">
         <div>
           <h2 className="h4 mb-1">Leaderboard</h2>
-          <p className="resource-subtitle">Endpoint: {`${apiBaseUrl}/leaderboard/`}</p>
+          <p className="resource-subtitle">Endpoint: {`${apiHost}/api/leaderboard/`}</p>
         </div>
       </div>
 

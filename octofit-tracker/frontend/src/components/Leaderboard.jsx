@@ -10,6 +10,7 @@ function normalizeLeaderboardEntries(payload) {
 }
 
 function Leaderboard({ apiHost }) {
+  const codespaceApiEndpointTemplate = 'https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/'
   const [entries, setEntries] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -50,6 +51,7 @@ function Leaderboard({ apiHost }) {
         <div>
           <h2 className="h4 mb-1">Leaderboard</h2>
           <p className="resource-subtitle">Endpoint: {`${apiHost}/api/leaderboard/`}</p>
+          <p className="resource-subtitle small">Codespaces template: {codespaceApiEndpointTemplate}</p>
         </div>
       </div>
 

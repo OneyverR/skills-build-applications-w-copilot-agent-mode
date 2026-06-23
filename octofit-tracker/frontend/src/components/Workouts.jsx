@@ -9,6 +9,7 @@ function normalizeCollection(payload) {
 }
 
 function Workouts({ apiHost }) {
+  const codespaceApiEndpointTemplate = 'https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/'
   const [items, setItems] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -41,6 +42,7 @@ function Workouts({ apiHost }) {
         <div>
           <h2 className="h4 mb-1">Workouts</h2>
           <p className="resource-subtitle">Endpoint: {`${apiHost}/api/workouts/`}</p>
+          <p className="resource-subtitle small">Codespaces template: {codespaceApiEndpointTemplate}</p>
         </div>
       </div>
 
